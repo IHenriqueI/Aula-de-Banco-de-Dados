@@ -36,6 +36,24 @@ public class BancoDeDados {
 		
 	}
 	
+	public static void alteraProduto(int codigoDesejado, String novoNome) {
+		
+		for(Produto produto: produtos) {
+			if(codigoDesejado == produto.getCodigo()) {
+				produto.setProduto(novoNome);
+			}
+		
+		}
+	}
 	
-	
+	public static void excluirProduto(int codigoDesejado) {
+		
+		for(Produto produto: produtos) {
+			if(codigoDesejado == produto.getCodigo()) {
+				produtos.remove(produto);
+				return;
+			}
+		
+		}
+	}
 }
