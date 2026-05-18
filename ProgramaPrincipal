@@ -57,10 +57,21 @@ public class ProgramaPrincipal {
 					break;
 				case 4:
 					System.out.println("********* ALTERANDO PRODUTO");
+					System.out.println("Digite o código do produto que deseja alterar: ");
+					codigoDesejado = leitor.nextInt();
+					
+					System.out.print("Digite o novo nome para o produto: ");
+					String novoNome = leitor.next();
+					
+					BancoDeDados.alteraProduto(codigoDesejado, novoNome);
 					
 					break;
 				case 5:
 					System.out.println("********* EXCLUINDO PRODUTO");
+					System.out.println("Digite o código que deseja excluir: ");
+					codigoDesejado = leitor.nextInt();
+					
+					BancoDeDados.excluirProduto(codigoDesejado);
 					break;
 				case 6:
 					System.out.println("********* SAINDO DO SISTEMA");
