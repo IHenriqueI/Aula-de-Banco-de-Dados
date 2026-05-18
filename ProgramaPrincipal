@@ -1,0 +1,76 @@
+package teste;
+
+import java.util.Scanner;
+
+import bd.BancoDeDados;
+import sistema.Produto;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args) {
+
+		Scanner leitor = new Scanner(System.in);
+
+		int opcao;
+
+		do {
+			System.out.println("   MENU PRINCIPAL");
+			System.out.println("*****************");
+			System.out.println("1 - CADASTRAR PRODUTO");
+			System.out.println("2 - MOSTRAR TODOS OS PRODUTOS");
+			System.out.println("3 - MOSTRAR PRODUTO DESEJADO");
+			System.out.println("4 - ALTERAR PRODUTO DESEJADO");
+			System.out.println("5 - EXCLUIR PRODUTO DESEJADO");
+			System.out.println("6 - FINALIZAR SISTEMA");
+			System.out.print("ESCOLHA A OPÇÃO:");
+
+			opcao = leitor.nextInt();
+
+			System.out.println("Você escolheu a opção: " + opcao);
+			
+			switch(opcao) {
+				case 1:
+					System.out.println("********* CADASTRANDO NOVO PRODUTO");
+					System.out.print("CÓDIGO DO PRODUTO: ");
+					int codigoDoProduto = leitor.nextInt();
+					
+					System.out.print("NOME DO PRODUTO: ");
+					String nomeDoProduto = leitor.next();
+					
+					//Cria o objeto e insere os dados dentro dele pelo construtor
+					Produto produto = new Produto(codigoDoProduto, nomeDoProduto);
+					
+					BancoDeDados.cadastra(produto);
+					
+					break;
+				case 2:
+					System.out.println("********* MOSTRANDO TODOS OS PRODUTOS");
+					BancoDeDados.mostraTodos();
+					break;
+				case 3:
+					System.out.println("********* MOSTRANDO PRODUTO DESEJADO");
+					System.out.println("Digite o código do produto desejado: ");
+					int codigoDesejado = leitor.nextInt();
+					
+					BancoDeDados.mostraProdutoDesejado(codigoDesejado);
+					
+					break;
+				case 4:
+					System.out.println("********* ALTERANDO PRODUTO");
+					
+					break;
+				case 5:
+					System.out.println("********* EXCLUINDO PRODUTO");
+					break;
+				case 6:
+					System.out.println("********* SAINDO DO SISTEMA");
+					break;
+				default:
+					System.out.println("********* OPÇÃO INVÁLIDA!!!!!! *********");
+					break;
+			}
+		} while (opcao != 6);
+
+	}
+
+}
