@@ -1,0 +1,35 @@
+package sistema;
+
+public class Produto {
+	
+	public int codigo;
+	public String produto;
+
+	public Produto(int codigo, String produto) {
+		this.codigo = codigo;
+		this.produto = produto;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public String getProduto() {
+		return produto;
+	}
+
+	public void setProduto(String produto) {
+		this.produto = produto;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+	
+	public void mostrarDados() {
+		System.out.println("Código do Produto: " + codigo);
+		System.out.println("nome do Produto: " + produto);
+		System.out.println("-------------------------------");
+	}
+
+}
