@@ -1,0 +1,41 @@
+package bd;
+
+import java.util.ArrayList;
+
+import sistema.Produto;
+
+public class BancoDeDados {
+
+	private static ArrayList<Produto> produtos = new ArrayList<>();
+	
+	static {
+		produtos.add(new Produto(1000,"Monitor"));
+		produtos.add(new Produto(1001,"Teclado"));
+		produtos.add(new Produto(1002,"Mouse"));
+		produtos.add(new Produto(1003,"Notebok"));
+		produtos.add(new Produto(1004,"Gabinete"));
+	}
+	
+	public static void cadastra(Produto produto) {
+		produtos.add(produto);
+	}
+	
+	public static void mostraTodos() {
+		for(Produto produto: produtos) {
+			System.out.println("Código do Produto: " + produto.getCodigo());
+			System.out.println("nome do Produto: " + produto.getProduto());
+			System.out.println("-------------------------------");
+		}
+	}
+
+	public static void mostraProdutoDesejado(int codigoDesejado) {
+		for(Produto produto: produtos) {
+			if(codigoDesejado == produto.getCodigo())
+				produto.mostrarDados();
+		}
+		
+	}
+	
+	
+	
+}
